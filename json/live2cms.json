@@ -1,42 +1,57 @@
 [
   {
-    "name": "GitHub-TXT",
-    "url": "https://ghproxy.net/https://raw.githubusercontent.com/ssili126/tv/main/itvlist.txt",
-    "img": "http://www.weibomn.com/uploadfile/image/20240622/5bf3ad336af04dc36b49ecd4a909882c.jpg"
+    "name": "itvlistIPV4",
+    "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/ssili126/tv/main/itvlist.txt",
+    "img": "./lives.jpg"
   },
   {
-    "name": "GitHub-M3U",
-    "url": "https://ghproxy.net/https://raw.githubusercontent.com/ssili126/tv/main/itvlist.m3u",
-    "img": "http://www.weibomn.com/uploadfile/image/20240622/5bf3ad336af04dc36b49ecd4a909882c.jpg"
+    "name": "范明明IPV6",
+    "url": "https://live.fanmingming.com/tv/m3u/ipv6.m3u",
+    "img": "./lives.jpg"
   },
   {
     "name": "CNTV",
     "url": "./live_cntv.txt",
-    "img": ""
-  },
-  {
-    "name": "范冰冰-V6在线",
-    "url": "https://live.fanmingming.com/tv/m3u/ipv6.m3u",
-    "img": "https://bkimg.cdn.bcebos.com/pic/a044ad345982b2b7d0a2e28059e3dcef76094b362d6a"
-  },
-  {
-    "name": "范冰冰-V6本地",
-    "url": "./ipv6.m3u",
     "img": "./lives.jpg"
   },
   {
-    "name": "1905",
-    "url": "./live_1905.txt",
-    "img": "https://image11.m1905.cn/uploadfile/2022/0510/thumb_1_285_100_20220510030520666149.jpg"
-  },
-  {
-    "name": "测试1(随时失效)",
-    "url": "https://gitee.com/svcd2008/tv/raw/master/430.txt",
+    "name": "fmm-IPV6",
+    "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u",
     "img": "./lives.jpg"
   },
   {
-    "name": "测试2(随时失效)",
-    "url": "https://gitee.com/flying-snow-wu/tv/raw/main/itvlist.txt",
-    "img": ""
+    "name": "fmm-itv",
+    "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/itv.m3u",
+    "img": "./lives.jpg"
+  },
+  {
+    "name": "fmm-radioFM",
+    "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/fanmingming/live/main/radio/m3u/fm.m3u",
+    "img": "./lives.jpg"
+  },
+  {
+    "name": "wwb521TV",
+    "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/wwb521/live/main/tv.m3u",
+    "img": "./lives.jpg"
+  },
+  {
+    "name": "GatherTV",
+    "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/YanG-1989/m3u/main/Gather.m3u",
+    "img": "./lives.jpg"
+  },
+  {
+    "name": "yoursmile66",
+    "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/yoursmile66/TVBox/main/live.txt",
+    "img": "./lives.jpg"
+  },
+  {
+    "name": "tvlive",
+    "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/dxawi/0/main/tvlive.txt",
+    "img": "./lives.jpg"
+  },
+  {
+    "name": "PizazzGYlive",
+    "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/PizazzGY/TVBox/main/live.txt",
+    "img": "./lives.jpg"
   }
 ]
