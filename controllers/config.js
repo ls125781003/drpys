@@ -83,6 +83,8 @@ async function generateSiteJSON(options, requestHost, sub, pwd) {
     let link_jar = '';
     let enableRuleName = ENV.get('enable_rule_name', '0') === '1';
     let isLoaded = await drpy.isLoaded();
+    let forceHeader = Number(process.env.FORCE_HEADER) || 0;
+    let dr2ApiType = Number(process.env.DR2_API_TYPE) || 0; // 0 ds里的api 1壳子内置
     // console.log('hide_adult:', ENV.get('hide_adult'));
     if (ENV.get('hide_adult') === '1') {
         valid_files = valid_files.filter(it => !(new RegExp('\\[[密]\\]|密+')).test(it));
@@ -108,7 +110,7 @@ async function generateSiteJSON(options, requestHost, sub, pwd) {
                 const filePath = path.join(jsDir, file);
                 const header = await FileHeaderManager.readHeader(filePath);
                 // console.log('ds header:', header);
-                if (!header) {
+                if (!header || forceHeader) {
                     try {
                         ruleObject = await drpy.getRuleObject(filePath);
                     } catch (e) {
@@ -121,6 +123,7 @@ async function generateSiteJSON(options, requestHost, sub, pwd) {
                         quickSearch: ruleObject.quickSearch,
                         more: ruleObject.more,
                         logo: ruleObject.logo,
+                        lang: 'ds',
                     });
                     // console.log('ds ruleMeta:', ruleMeta);
                     await FileHeaderManager.writeHeader(filePath, ruleMeta);
@@ -195,7 +198,8 @@ async function generateSiteJSON(options, requestHost, sub, pwd) {
             return {
                 func: async ({file, dr2Dir, requestHost, pwd, drpy, SitesMap}) => {
                     const baseName = path.basename(file, '.js'); // 去掉文件扩展名
-                    let api = `assets://js/lib/drpy2.js`;  // 使用内置drpy2
+                    // dr2ApiType=0 使用接口drpy2 dr2ApiType=1 使用壳子内置的drpy2
+                    let api = dr2ApiType ? `assets://js/lib/drpy2.js` : `${requestHost}/public/drpy2/drpy2.min.js`;
                     let ext = `${requestHost}/js/${file}`;
                     if (pwd) {
                         ext += `?pwd=${pwd}`;
@@ -209,7 +213,7 @@ async function generateSiteJSON(options, requestHost, sub, pwd) {
                     const filePath = path.join(dr2Dir, file);
                     const header = await FileHeaderManager.readHeader(filePath);
                     // console.log('dr2 header:', header);
-                    if (!header) {
+                    if (!header || forceHeader) {
                         try {
                             ruleObject = await drpy.getRuleObject(path.join(filePath));
                         } catch (e) {
@@ -222,6 +226,7 @@ async function generateSiteJSON(options, requestHost, sub, pwd) {
                             quickSearch: ruleObject.quickSearch,
                             more: ruleObject.more,
                             logo: ruleObject.logo,
+                            lang: 'dr2',
                         });
                         // console.log('dr2 ruleMeta:', ruleMeta);
                         await FileHeaderManager.writeHeader(filePath, ruleMeta);
@@ -302,11 +307,12 @@ async function generateSiteJSON(options, requestHost, sub, pwd) {
                     const filePath = path.join(pyDir, file);
                     const header = await FileHeaderManager.readHeader(filePath);
                     // console.log('py header:', header);
-                    if (!header) {
+                    if (!header || forceHeader) {
                         const fileContent = await readFile(filePath, 'utf-8');
                         const title = extractNameFromCode(fileContent) || baseName;
                         Object.assign(ruleMeta, {
                             title: title,
+                            lang: 'hipy',
                         });
                         // console.log('py ruleMeta:', ruleMeta);
                         await FileHeaderManager.writeHeader(filePath, ruleMeta);
